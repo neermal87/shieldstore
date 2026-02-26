@@ -26,6 +26,7 @@ app.use(cors({
   origin(origin, cb) {
     if (!origin) return cb(null, true);
     if (allowedOrigins.some((o) => o && origin === o)) return cb(null, true);
+    if (origin.endsWith('.vercel.app')) return cb(null, true);
     if (origin.endsWith('.loca.lt')) return cb(null, true);
     if (origin.endsWith('.ngrok-free.app') || origin.endsWith('.ngrok.io')) return cb(null, true);
     if (origin.endsWith('.trycloudflare.com')) return cb(null, true);

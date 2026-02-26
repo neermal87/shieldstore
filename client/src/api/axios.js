@@ -2,7 +2,8 @@
  * Fetch-based API client (no axios). Same interface: api.get(), api.post(), api.put(), api.delete()
  */
 
-const baseURL = process.env.REACT_APP_API_URL || '';
+const PRODUCTION_API = 'https://shieldstore.onrender.com';
+const baseURL = process.env.REACT_APP_API_URL || (typeof window !== 'undefined' && !/localhost|127\.0\.0\.1/.test(window.location.host) ? PRODUCTION_API : '');
 const apiRoot = baseURL ? `${baseURL}/api` : '/api';
 
 function getHeaders() {
