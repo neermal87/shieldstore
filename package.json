@@ -1,0 +1,17 @@
+{
+  "name": "shield-ecommerce",
+  "version": "1.0.0",
+  "description": "Full-stack MERN E-commerce with gaming theme, auth, admin & user panels",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "share": "cloudflared tunnel --url http://localhost:3000"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply antialiased font-body;
+}
+
+html.dark {
+  @apply bg-dark-950 text-gray-200;
+}
+
+html.light {
+  @apply bg-gray-100 text-gray-900;
+}
+
+html {
+  @apply transition-colors duration-300;
+}
+
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  @apply bg-dark-900;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-neon-cyan/30 rounded-full;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  @apply bg-neon-cyan/50;
+}
+
+/* Professional form controls: focus ring for accessibility */
+.input-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-neon-cyan focus:ring-offset-2 dark:focus:ring-offset-dark-950;
+}
+
+.btn-primary {
+  @apply focus:outline-none focus:ring-2 focus:ring-neon-orange focus:ring-offset-2 dark:focus:ring-offset-dark-950 disabled:opacity-60 disabled:cursor-not-allowed;
+}
+
+/* Skip to main content for keyboard/screen reader */
+.skip-link {
+  @apply absolute left-4 top-4 -translate-y-16 bg-neon-cyan text-black font-bold px-4 py-2 rounded-lg z-[100] focus:translate-y-0 transition-transform;
+}
