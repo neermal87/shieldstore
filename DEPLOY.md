@@ -2,6 +2,8 @@
 
 Deploy **frontend** (Vercel) + **backend** (Render) + **database** (MongoDB Atlas) for free.
 
+> **Security:** Never put real credentials in this file or in the repo. Use only placeholders below. Set real values in Render/Vercel environment variables or in local `.env` (and keep `.env` in `.gitignore`). If a MongoDB URI was ever committed, change the database user password in Atlas and update the URI in your deployment env vars.
+
 ---
 
 ## Launch on Vercel (frontend) – quick steps
@@ -38,11 +40,11 @@ Deploy **frontend** (Vercel) + **backend** (Render) + **database** (MongoDB Atla
 2. Create a **free cluster** (M0).
 3. **Database Access** → Add user (username + password). Note the password.
 4. **Network Access** → Add IP: `0.0.0.0/0` (allow from anywhere) for Render.
-5. **Database** → Connect → **Drivers** → copy the connection string. It looks like:
+5. **Database** → Connect → **Drivers** → copy the connection string. It looks like (this is an example only—do not use real credentials here):
    ```text
-   mongodb+srv://USER:PASSWORD@cluster0.xxxxx.mongodb.net/DBNAME?retryWrites=true&w=majority
+   mongodb+srv://YOUR_USERNAME:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/shield-ecommerce?retryWrites=true&w=majority
    ```
-   Replace `USER`, `PASSWORD`, and optionally `DBNAME` (e.g. `shield-ecommerce`).
+   Put your **real** connection string only in Render’s Environment Variables (and in local `server/.env`); never commit it to the repo.
 
 ---
 
@@ -64,7 +66,7 @@ Deploy **frontend** (Vercel) + **backend** (Render) + **database** (MongoDB Atla
    | Key            | Value |
    |----------------|--------|
    | `NODE_ENV`     | `production` |
-   | `MONGODB_URI`  | Your Atlas connection string from step 1 |
+   | `MONGODB_URI`  | Your Atlas connection string—paste only in Render’s env vars, never in this file or in code. |
    | `JWT_SECRET`   | A long random string (e.g. use a password generator) |
    | `FRONTEND_URL` | Leave empty for now; add after step 3 (e.g. `https://your-app.vercel.app`) |
 
